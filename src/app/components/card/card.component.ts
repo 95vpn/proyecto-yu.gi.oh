@@ -14,4 +14,8 @@ export class CardComponent {
   @Input() card!: Card;
 
   constructor(private router: Router) {}
+
+  goToCard() {
+    this.router.navigate([`./card/${this.card.id}`]);
+  }
 }
