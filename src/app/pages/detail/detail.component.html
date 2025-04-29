@@ -1,18 +1,28 @@
 <p>detail works!</p>
-<div class="detail-card">
+<div class="detail-card" *ngIf="card$ | async as card">
     <div class="top">
-        <img src="https://images.ygoprodeck.com/images/cards/6983839.jpg" alt="">
+        <img [src] = "card.card_images[0].image_url" alt="">
     </div>
     <div class="botton">
-        <h2>Nombre de la Carta</h2>
+        <h2>{{card.name}}</h2>
 
         <div class="item">
-            <p class="description">Descripcion</p>
+            <p class="description">{{card.desc}}</p>
         </div>
 
         <div class="item">
-            <h3 class="title">Titulo</h3>
-            <p class="description">Descripcion</p>
+            <h3 class="title">Arquetipo</h3>
+            <p class="description">{{card.typeline}}</p>
+        </div>
+
+        <div class="item">
+            <h3 class="title">Tipo</h3>
+            <p class="description">{{card.type}}</p>
+        </div>
+
+        <div class="item">
+            <h3 class="title">Subtipo</h3>
+            <p class="description">{{card.race}}</p>
         </div>
 
         <table class="table">
@@ -23,9 +33,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">Market</th>
-                    <td>Price</td>
+                <tr *ngFor="let market of card.card_prices[0] | keyvalue">
+                    <th scope="row">{{market.key}}</th>
+                    <td>{{market.value}}</td>
                 </tr>
             </tbody>
         </table>
