@@ -4,11 +4,12 @@ import { CardService } from '../../services/card.service';
 import { Observable, tap } from 'rxjs';
 import { Card } from '../../interfaces/card.interface';
 import { CommonModule } from '@angular/common';
+import { MarketNamePipe } from "../../pipes/market-name.pipe";
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MarketNamePipe],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss'
 })
